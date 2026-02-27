@@ -74,6 +74,9 @@
  '(org-block-end-line
    ((t (:background "#5e81ac" :foreground "#eceff4" :extend t)))))
 
+;; Enable wrapping in Org-mode
+(add-hook 'org-mode-hook 'visual-line-mode)
+
 (use-package org-roam
 :ensure t
 :custom

@@ -47,6 +47,11 @@
   (setq split-height-threshold nil)
   (setq split-width-threshold 0)
 
+  ;; Smooth scrolling
+  (pixel-scroll-precision-mode 1)
+  (setq scroll-conservatively 101
+        scroll-margin 5)
+
   ;; Global theme
   (load-theme 'modus-operandi-tinted t)
 
@@ -103,7 +108,9 @@
 
 * Packages
 
-** Org-Roam
+** Org Packages
+
+*** Org-Roam
 
 #+begin_src emacs-lisp
 
@@ -120,6 +127,27 @@
          ("C-c n g" . org-roam-graph))
   :config
   (org-roam-setup))
+
+#+end_src
+
+*** TOC-org
+
+#+begin_src emacs-lisp
+
+  (use-package toc-org
+    :ensure t
+    :hook (org-mode . toc-org-mode))
+
+#+end_src
+
+*** org-bullets
+
+#+begin_src emacs-lisp
+
+  (use-package org-bullets
+    :ensure t
+    :hook (org-mode . org-bullets-mode)
+    :config (setq org-bullets-bullet-list '("✬" "ꕥ" "▶" "╰┈➤")))
 
 #+end_src
 
@@ -177,6 +205,18 @@
     :init (which-key)
     :config (setq which-key-use-C-h-commands t)
     (setq which-key-idle-delay 0.5))
+
+#+end_src
+
+** Emmet
+
+#+begin_src emacs-lisp
+
+  (use-package emmet-mode
+    :ensure t
+    :hook ((html-mode . emmet-mode)
+  	 (css-mode . emmet-mode)
+  	 (web-mode . emmet-mode)))
 
 #+end_src
 

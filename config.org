@@ -131,6 +131,17 @@
 
 #+end_src
 
+** Vertico
+
+#+begin_src emacs-lisp
+
+  (use-package vertico
+    :ensure t
+    :init
+    (vertico-mode))
+
+#+end_src
+
 * Improving the Default Settings
 
 ** Auto-save & Backup files management

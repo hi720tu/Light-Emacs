@@ -2,6 +2,20 @@
 #+AUTHOR: Hitendra (hi720tu)
 #+Description: My personal configuration of GNU Emacs.
 
+* Table of Contents:toc:
+- [[#package-manager][Package Manager]]
+  - [[#installing-straightel][Installing straight.el]]
+- [[#look--feel][Look & Feel]]
+  - [[#org-mode][org-mode]]
+- [[#packages][Packages]]
+  - [[#org-packages][Org Packages]]
+  - [[#magit][Magit]]
+  - [[#minibuffer-related][Minibuffer related]]
+  - [[#emmet][Emmet]]
+- [[#improving-the-default-settings][Improving the Default Settings]]
+  - [[#auto-save--backup-files-management][Auto-save & Backup files management]]
+  - [[#changing-default-encoding-to-utf-8][Changing default encoding to UTF-8]]
+
 * Package Manager
 
 ** Installing straight.el
@@ -128,6 +142,8 @@
   :config
   (org-roam-setup))
 
+  (setq org-return-follows-link t)
+
 #+end_src
 
 *** TOC-org
@@ -200,11 +216,11 @@
 
 #+begin_src emacs-lisp
 
-  (use-package which-key
-    :ensure t
-    :init (which-key)
-    :config (setq which-key-use-C-h-commands t)
-    (setq which-key-idle-delay 0.5))
+  ;;(use-package which-key
+  ;;  :ensure t
+  ;;  :init (which-key)
+  ;;  :config (setq which-key-use-C-h-commands t)
+  ;;  (setq which-key-idle-delay 0.5))
 
 #+end_src
 

@@ -31,6 +31,11 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
 
+;; Smooth scrolling
+(pixel-scroll-precision-mode 1)
+(setq scroll-conservatively 101
+      scroll-margin 5)
+
 ;; Global theme
 (load-theme 'modus-operandi-tinted t)
 
@@ -81,6 +86,8 @@
 :ensure t
 :custom
 (org-roam-directory "~/Documents/RoamNotes")
+(org-roam-node-display-template
+ (concat "${title:*} " (propertize "${tags:10}" 'face 'font-lock-keyword-face)))
 :bind (("C-c n t" . org-roam-buffer-toggle)
        ("C-c n f" . org-roam-node-find)
        ("C-c n i" . org-roam-node-insert)
@@ -89,9 +96,47 @@
 :config
 (org-roam-setup))
 
+(setq org-return-follows-link t)
+
+(use-package toc-org
+  :ensure t
+  :hook (org-mode . toc-org-mode))
+
+(use-package org-bullets
+  :ensure t
+  :hook (org-mode . org-bullets-mode)
+  :config (setq org-bullets-bullet-list '("✬" "ꕥ" "▶" "╰┈➤")))
+
 (use-package magit
   :ensure t
   :bind (("C-x g" . magit-status)))
+
+(use-package vertico
+  :ensure t
+  :init (vertico-mode))
+
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like substring
+
+(use-package marginalia
+  :ensure t
+  :init (marginalia-mode))
+
+;;(use-package which-key
+;;  :ensure t
+;;  :init (which-key)
+;;  :config (setq which-key-use-C-h-commands t)
+;;  (setq which-key-idle-delay 0.5))
+
+(use-package emmet-mode
+  :ensure t
+  :hook ((html-mode . emmet-mode)
+	 (css-mode . emmet-mode)
+	 (web-mode . emmet-mode)))
 
 ;; Save all backup files in one place
 (setq backup-directory-alist

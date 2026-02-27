@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# Except
+!.gitignore
+!init.el
+!config.el
+!config.org
+
+!README.org
+!LICENSE

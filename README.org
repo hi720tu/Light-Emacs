@@ -1,0 +1,13 @@
+#+TITLE: Light-Emacs
+
+My personal configuration of GNU Emacs, which uses [[https://github.com/radian-software/straight.el][straight.el]] as the package manager and [[https://github.com/protesilaos/modus-themes][modus-operandi-tinted]] as the main theme.
+
+* Requirements
+
+- Emacs version >= 27.0
+- Martian Mono Nerd Font & Ubuntu fonts
+
+* Packages
+
+- [[https://github.com/org-roam/org-roam][org-roam]]
+- [[https://github.com/magit/magit][Matgit]]

@@ -9,5 +9,13 @@ My personal configuration of GNU Emacs, which uses [[https://github.com/radian-s
 
 * Packages
 
-- [[https://github.com/org-roam/org-roam][org-roam]]
 - [[https://github.com/magit/magit][Matgit]]
+- Org Packages
+  - [[https://github.com/org-roam/org-roam][org-roam]]
+  - [[https://github.com/snosov1/toc-org][TOC-org]]
+  - [[https://github.com/sabof/org-bullets][org-bullets]]
+- For minibuffer
+  - [[https://github.com/minad/vertico][Vertico]]
+  - [[https://github.com/oantolin/orderless][orderless]]
+  - [[https://github.com/minad/marginalia][Marginalia]]
+- [[https://github.com/emacsmirror/emmet-mode][emmet-mode]]

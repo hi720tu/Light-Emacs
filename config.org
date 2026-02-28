@@ -64,10 +64,7 @@
   ;; Smooth scrolling
   (pixel-scroll-precision-mode 1)
   (setq scroll-conservatively 101
-        scroll-margin 5
-        scroll-step 1
-        mouse-wheel-scroll-amount '(1 ((shift) . 1))
-        mouse-wheel-progress-speed nil)
+        scroll-margin 5)
 
   ;; Global theme
   (load-theme 'modus-operandi-tinted t)

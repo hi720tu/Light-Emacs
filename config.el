@@ -39,7 +39,7 @@
 ;; Global theme
 (load-theme 'modus-operandi-tinted t)
 
-;; Fonts
+;; Default font
 (set-face-attribute 'default nil
 		    :font "Martian Mono Nerd Font"
 		    :height 120
@@ -125,12 +125,6 @@
 (use-package marginalia
   :ensure t
   :init (marginalia-mode))
-
-;;(use-package which-key
-;;  :ensure t
-;;  :init (which-key)
-;;  :config (setq which-key-use-C-h-commands t)
-;;  (setq which-key-idle-delay 0.5))
 
 (use-package emmet-mode
   :ensure t

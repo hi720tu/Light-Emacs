@@ -212,18 +212,6 @@
 
 #+end_src
 
-*** which-key
-
-#+begin_src emacs-lisp
-
-  ;;(use-package which-key
-  ;;  :ensure t
-  ;;  :init (which-key)
-  ;;  :config (setq which-key-use-C-h-commands t)
-  ;;  (setq which-key-idle-delay 0.5))
-
-#+end_src
-
 ** Emmet
 
 #+begin_src emacs-lisp

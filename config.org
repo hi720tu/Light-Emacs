@@ -64,12 +64,15 @@
   ;; Smooth scrolling
   (pixel-scroll-precision-mode 1)
   (setq scroll-conservatively 101
-        scroll-margin 5)
+        scroll-margin 5
+        scroll-step 1
+        mouse-wheel-scroll-amount '(1 ((shift) . 1))
+        mouse-wheel-progress-speed nil)
 
   ;; Global theme
   (load-theme 'modus-operandi-tinted t)
 
-  ;; Fonts
+  ;; Default font
   (set-face-attribute 'default nil
   		    :font "Martian Mono Nerd Font"
   		    :height 120

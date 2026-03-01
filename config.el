@@ -86,6 +86,15 @@
  org-agenda-tags-column 0
  org-ellpisis "…")
 
+;; Extra styling for code block
+(let ((med-red "#a60000")
+      (red-tint "#fbe9ef"))
+  (custom-set-faces
+   `(org-block-begin-line ((t :background ,red-tint :foreground ,med-red :extend t)))
+   `(org-block-end-line ((t :background ,red-tint :foreground ,med-red :extend t)))
+   `(org-modern-block-name ((t :background ,med-red :foreground "white" :weight bold)))
+   `(org-modern-block-keyword ((t :background ,red-tint :foreground ,med-red :weight bold)))))
+
 (use-package org-roam
 :ensure t
 :custom

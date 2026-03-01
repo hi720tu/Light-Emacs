@@ -230,20 +230,20 @@
 
 #+begin_src emacs-lisp
 
-  ;; Save all backup files in one place
-  (setq backup-directory-alist
-        '(("." . "~/.emacs.d/backups")))
+  (let ((back-dir "~/.emacs.d/backups")
+        (auto-save-dir "~/.emacs.d/auto-saves/"))
+    
+    ;; Error handling
+    (unless (file-exists-p backup-dir)
+      (make-directory backup-dir t))
+    (unless (file-exists-p auto-save-dir)
+      (make-directory auto-save-dir t)))
 
-  ;; Save all auto-save files in one place
-  (setq auto-save-file-name-transforms
-        '((".*" "~/.emacs.d/auto-saves/" t)))
-
-  ;; Bug fixes
-  (setq backup-by-copying t)     ;; doesn't use symlinks
-  (setq delete-old-versions t)   ;; clean up excess backups
-  (setq kept-new-versions 6)     ;; keep 6 most recent backups
-  (setq kept-old-versions 2)     ;; keep two very old backups
-  (setq version-control t)       ;; use numbered backups
+  ;; Setup
+  (setq delete-old-versions t
+        kept-new-versions 6
+        kept-old-versions 2
+        version-control t)
 
 #+end_src
 

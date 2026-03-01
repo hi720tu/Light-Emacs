@@ -39,6 +39,9 @@
 ;; Global theme
 (load-theme 'modus-operandi-tinted t)
 
+;; Line highlight
+(global-hl-line-mode 1)
+
 ;; Default font
 (set-face-attribute 'default nil
 		    :font "Martian Mono Nerd Font"
@@ -132,20 +135,21 @@
 	 (css-mode . emmet-mode)
 	 (web-mode . emmet-mode)))
 
-;; Save all backup files in one place
-(setq backup-directory-alist
-      '(("." . "~/.emacs.d/backups")))
+(defvar my-backup-dir "~/.emacs.d/backups/")
+(defvar my-auto-save-dir "~/.emacs.d/auto-saves/")
 
-;; Save all auto-save files in one place
-(setq auto-save-file-name-transforms
-      '((".*" "~/.emacs.d/auto-saves/" t)))
+(unless (file-exists-p my-backup-dir)
+  (make-directory my-backup-dir t))
+(unless (file-exists-p my-auto-save-dir)
+  (make-directory my-auto-save-dir t))
 
-;; Bug fixes
-(setq backup-by-copying t)     ;; doesn't use symlinks
-(setq delete-old-versions t)   ;; clean up excess backups
-(setq kept-new-versions 6)     ;; keep 6 most recent backups
-(setq kept-old-versions 2)     ;; keep two very old backups
-(setq version-control t)       ;; use numbered backups
+(setq backup-directory-alist `(("." . ,my-backup-dir))
+      auto-save-file-name-transforms `((".*" ,my-auto-save-dir t)))
+
+;; Setup
+(setq delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t)
 
 (set-language-environment "UTF-8")
-(prefer-coding-system 'utf-8)

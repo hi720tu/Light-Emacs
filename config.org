@@ -233,14 +233,16 @@
 
 #+begin_src emacs-lisp
 
-  (let ((back-dir "~/.emacs.d/backups")
-        (auto-save-dir "~/.emacs.d/auto-saves/"))
-    
-    ;; Error handling
-    (unless (file-exists-p backup-dir)
-      (make-directory backup-dir t))
-    (unless (file-exists-p auto-save-dir)
-      (make-directory auto-save-dir t)))
+  (defvar my-backup-dir "~/.emacs.d/backups/")
+  (defvar my-auto-save-dir "~/.emacs.d/auto-saves/")
+
+  (unless (file-exists-p my-backup-dir)
+    (make-directory my-backup-dir t))
+  (unless (file-exists-p my-auto-save-dir)
+    (make-directory my-auto-save-dir t))
+
+  (setq backup-directory-alist `(("." . ,my-backup-dir))
+        auto-save-file-name-transforms `((".*" ,my-auto-save-dir t)))
 
   ;; Setup
   (setq delete-old-versions t

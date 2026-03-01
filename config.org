@@ -69,6 +69,9 @@
   ;; Global theme
   (load-theme 'modus-operandi-tinted t)
 
+  ;; Line highlight
+  (global-hl-line-mode 1)
+
   ;; Default font
   (set-face-attribute 'default nil
   		    :font "Martian Mono Nerd Font"

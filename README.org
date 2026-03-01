@@ -1,11 +1,11 @@
 #+TITLE: Light-Emacs
 
-My personal configuration of GNU Emacs, which uses [[https://github.com/radian-software/straight.el][straight.el]] as the package manager and [[https://github.com/protesilaos/modus-themes][modus-operandi-tinted]] as the main theme.
+My personal configuration of GNU Emacs, which uses [[https://github.com/radian-software/straight.el][straight.el]] as the package manager, [[https://github.com/protesilaos/modus-themes][modus-operandi-tinted]] as the main theme, and [[https://github.com/minad/org-modern][org-modern]] styling.
 
 * Requirements
 
-- Emacs version >= 27.0
-- Martian Mono Nerd Font & Ubuntu fonts
+- Emacs version >= 29.1
+- [[https://github.com/be5invis/Iosevka/releases][Iosevka and Iosevka Aile]] fonts
 
 * Packages
 
@@ -13,7 +13,8 @@ My personal configuration of GNU Emacs, which uses [[https://github.com/radian-s
 - Org Packages
   - [[https://github.com/org-roam/org-roam][org-roam]]
   - [[https://github.com/snosov1/toc-org][TOC-org]]
-  - [[https://github.com/sabof/org-bullets][org-bullets]]
+  - [[https://github.com/sabof/org-bullets][org-modern]]
+  - [[https://github.com/jdtsmith/org-modern-indent][org-modern-indent]]
 - For minibuffer
   - [[https://github.com/minad/vertico][Vertico]]
   - [[https://github.com/oantolin/orderless][orderless]]

@@ -10,6 +10,7 @@
   - [[#frame-boarders-and-window-dividers][Frame boarders and Window dividers]]
   - [[#org][org]]
 - [[#packages][Packages]]
+  - [[#built-in-packages][Built-in Packages]]
   - [[#org-packages][Org Packages]]
     - [[#org-roam][Org-Roam]]
     - [[#toc-org][TOC-org]]
@@ -145,18 +146,29 @@ Taken from org-modern GitHub repo: [[Ehttps://github.com/minad/org-modern?tab=re
    org-ellpisis "…")
 
   ;; Extra styling for code block
-  (let ((med-red "#a60000")
-        (red-tint "#fbe9ef"))
+  (let ((med-col "#a60000")
+        (re-tint "#fbe9ef"))
     (custom-set-faces
-     `(org-block-begin-line ((t :background ,red-tint :foreground ,med-red :extend t)))
-     `(org-block-end-line ((t :background ,red-tint :foreground ,med-red :extend t)))
-     `(org-modern-block-name ((t :background ,med-red :foreground "white" :weight bold)))
-     `(org-modern-block-keyword ((t :background ,red-tint :foreground ,med-red :weight bold)))))
+     `(org-block-begin-line ((t :background ,re-tint :foreground ,med-col :extend t)))
+     `(org-block-end-line ((t :background ,re-tint :foreground ,med-col :extend t)))
+     `(org-modern-block-name ((t :background ,med-col :foreground "white" :weight bold)))
+     `(org-modern-block-keyword ((t :background ,re-tint :foreground ,med-col :weight bold)))))
 
 #+end_src
 
 
 * Packages
+
+** Built-in Packages
+
+#+begin_src emacs-lisp
+
+  ;; Enabling rainbow-mode
+  (use-package rainbow-mode
+    :ensure t
+    :hook (css-mode web-mode prog-mode))
+
+#+end_src
 
 ** Org Packages
 

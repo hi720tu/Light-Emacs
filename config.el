@@ -95,6 +95,11 @@
    `(org-modern-block-name ((t :background ,med-red :foreground "white" :weight bold)))
    `(org-modern-block-keyword ((t :background ,red-tint :foreground ,med-red :weight bold)))))
 
+;; Enabling rainbow-mode
+(use-package rainbow-mode
+  :ensure t
+  :hook (css-mode web-mode prog-mode))
+
 (use-package org-roam
 :ensure t
 :custom

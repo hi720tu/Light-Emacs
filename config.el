@@ -22,6 +22,7 @@
 
 ;; Clean interface
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; Adding relative line numbers
 (global-display-line-numbers-mode 1)
@@ -37,54 +38,50 @@
       scroll-conservatively 10000
       scroll-margin 5)
 
-;; Global theme
-(load-theme 'modus-operandi-tinted t)
-
 ;; Line highlight
 (global-hl-line-mode 1)
-
-;; Default font
-(set-face-attribute 'default nil
-		    :font "Martian Mono Nerd Font"
-		    :height 120
-		    :weight 'regular)
-
-;; Font to be used during non-monospace contexts
-(set-face-attribute 'variable-pitch nil
-		    :font "Ubuntu"
-		    :height 120
-		    :weight 'medium)
-
-;; Make sure new frames get it too
-(add-to-list 'default-frame-alist
-	     '(font . "Martian Mono Nerd Font-12"))
-
-;; For Telugu script writing
-(set-fontset-font t 'telugu "Noto Sans Telugu")
 
 ;; Line Spacing
 (setq-default line-spacing 0.12)
 
-(setq org-indent-indentation-per-level 2)
+;; Main theme
+(setq modus-themes-headings
+      '((1 . (variable-pitch 1.5))
+	(2 . (variable-pitch 1.3))
+	(3 . (variable-pitch 1.1))
+	(t . (variable-pitch 1.0))))
+(load-theme 'modus-operandi-tinted t)
 
-(add-hook 'org-mode-hook #'org-indent-mode)
-(global-prettify-symbols-mode 1)
+(set-face-attribute 'default nil :family "Iosevka")
+(set-face-attribute 'fixed-pitch nil :family "Iosevka")
+(set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
 
-;; Special theme for code blocks
-(custom-set-faces
-     '(default ((t (:background "#fdf6e3" :foreground "#2e3440")))))
+(set-fontset-font t 'telugu "NTR")
 
-(setq org-src-fontify-natively t)
+(modify-all-frames-parameters
+ '((right-divider-width . 40)
+   (internal-border-width . 40)))
+(dolist (face '(window-divider
+		window-divider-first-pixel
+		window-divider-last-pixel))
+  (face-spec-reset-face face)
+  (set-face-foreground face (face-attribute 'default :background)))
+(set-face-background 'fringe (face-attribute 'default :background))
 
-(custom-set-faces
- '(org-block ((t (:background "#e4e7ec" :extend t))))
- '(org-block-begin-line
-   ((t (:background "#5e81ac" :foreground "#eceff4" :extend t))))
- '(org-block-end-line
-   ((t (:background "#5e81ac" :foreground "#eceff4" :extend t)))))
-
-;; Enable wrapping in Org-mode
-(add-hook 'org-mode-hook 'visual-line-mode)
+(setq
+ ;; Settings
+ org-auto-align-tags nil
+ org-tags-column 0
+ org-catch-invisible-edits 'show-and-error
+ org-special-ctrl-a/e t
+ org-insert-heading-respect-content t
+ org-startup-indented t
+ ;; Styling
+ org-indent-indentation-per-level 2
+ org-hide-emphasis-markers t
+ org-pretty-entities t
+ org-agenda-tags-column 0
+ org-ellpisis "…")
 
 (use-package org-roam
 :ensure t
@@ -106,10 +103,16 @@
   :ensure t
   :hook (org-mode . toc-org-mode))
 
-(use-package org-bullets
+(use-package org-modern
   :ensure t
-  :hook (org-mode . org-bullets-mode)
-  :config (setq org-bullets-bullet-list '("✬" "ꕥ" "▶" "╰┈➤")))
+  :config (global-org-modern-mode 1)
+  (setq org-modern-star 'replace)
+  (setq org-modern-hide-stars nil))
+
+(use-package org-modern-indent
+  :straight (org-modern-indent :type git :host github :repo "jdtsmith/org-modern-indent")
+  :init (setq org-startup-indented t)
+  :config (add-hook 'org-mode-hook #'org-modern-indent-mode 90))
 
 (use-package magit
   :ensure t

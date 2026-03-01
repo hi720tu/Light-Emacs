@@ -68,6 +68,8 @@
   (set-face-foreground face (face-attribute 'default :background)))
 (set-face-background 'fringe (face-attribute 'default :background))
 
+(add-hook 'org-mode-hook #'visual-line-mode)
+
 (setq
  ;; Settings
  org-auto-align-tags nil
@@ -76,6 +78,7 @@
  org-special-ctrl-a/e t
  org-insert-heading-respect-content t
  org-startup-indented t
+ org-startup-truncated nil
  ;; Styling
  org-indent-indentation-per-level 2
  org-hide-emphasis-markers t

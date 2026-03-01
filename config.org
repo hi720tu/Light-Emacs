@@ -21,7 +21,7 @@
     - [[#orderless][Orderless]]
     - [[#marginalia][Marginalia]]
   - [[#emmet][Emmet]]
-- [[#improving-the-default-settings][Improving the Default Settings]]
+- [[#improved-default-settings][Improved Default Settings]]
   - [[#auto-save--backup-files-management][Auto-save & Backup files management]]
   - [[#changing-default-encoding-to-utf-8][Changing default encoding to UTF-8]]
 
@@ -126,6 +126,8 @@ Taken from org-modern GitHub repo: [[Ehttps://github.com/minad/org-modern?tab=re
 
 #+begin_src emacs-lisp
 
+  (add-hook 'org-mode-hook #'visual-line-mode)
+
   (setq
    ;; Settings
    org-auto-align-tags nil
@@ -134,6 +136,7 @@ Taken from org-modern GitHub repo: [[Ehttps://github.com/minad/org-modern?tab=re
    org-special-ctrl-a/e t
    org-insert-heading-respect-content t
    org-startup-indented t
+   org-startup-truncated nil
    ;; Styling
    org-indent-indentation-per-level 2
    org-hide-emphasis-markers t
@@ -260,7 +263,7 @@ Taken from org-modern GitHub repo: [[Ehttps://github.com/minad/org-modern?tab=re
 
 #+end_src
 
-* Improving the Default Settings
+* Improved Default Settings
 
 ** Auto-save & Backup files management
 

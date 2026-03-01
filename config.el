@@ -32,8 +32,9 @@
 (setq split-width-threshold 0)
 
 ;; Smooth scrolling
-(pixel-scroll-precision-mode 1)
-(setq scroll-conservatively 101
+(pixel-scroll-precision-mode t)
+(setq scroll-step 1
+      scroll-conservatively 10000
       scroll-margin 5)
 
 ;; Global theme

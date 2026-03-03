@@ -6,6 +6,7 @@
 !init.el
 !config.el
 !config.org
+!early-init.el
 
 !README.org
 !LICENSE

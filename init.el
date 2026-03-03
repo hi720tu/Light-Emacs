@@ -1,6 +1,30 @@
 ;;; Literate Configuration
+
+;; Installing the straight.el package manager
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
+
+;; Stop the built-in Org from loading at startup
+(use-package org)
+
 ;; Loads org file and extracts all the elisp code
 ;; Sourced from "config.org" in the Emacs config directory
-(require 'org)
+(straight-use-package 'org)
 (org-babel-load-file
  (expand-file-name "config.org" user-emacs-directory))

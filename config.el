@@ -1,24 +1,24 @@
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name
-        "straight/repos/straight.el/bootstrap.el"
-        (or (bound-and-true-p straight-base-dir)
-            user-emacs-directory)))
-      (bootstrap-version 7))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+;; (defvar bootstrap-version)
+;; (let ((bootstrap-file
+;;        (expand-file-name
+;;         "straight/repos/straight.el/bootstrap.el"
+;;         (or (bound-and-true-p straight-base-dir)
+;;             user-emacs-directory)))
+;;       (bootstrap-version 7))
+;;   (unless (file-exists-p bootstrap-file)
+;;     (with-current-buffer
+;;         (url-retrieve-synchronously
+;;          "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+;;          'silent 'inhibit-cookies)
+;;       (goto-char (point-max))
+;;       (eval-print-last-sexp)))
+;;   (load bootstrap-file nil 'nomessage))
 
-(straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
+;; (straight-use-package 'use-package)
+;; (setq straight-use-package-by-default t)
 
-;; Official recommendation
-(setq package-enable-at-startup nil)
+;; ;; Official recommendation
+;; (setq package-enable-at-startup nil)
 
 ;; Clean interface
 (tool-bar-mode -1)
@@ -58,15 +58,15 @@
 
 (set-fontset-font t 'telugu "NTR")
 
-(modify-all-frames-parameters
- '((right-divider-width . 40)
-   (internal-border-width . 40)))
-(dolist (face '(window-divider
-		window-divider-first-pixel
-		window-divider-last-pixel))
-  (face-spec-reset-face face)
-  (set-face-foreground face (face-attribute 'default :background)))
-(set-face-background 'fringe (face-attribute 'default :background))
+;; (modify-all-frames-parameters
+;;  '((right-divider-width . 40)
+;;    (internal-border-width . 40)))
+;; (dolist (face '(window-divider
+;; 		window-divider-first-pixel
+;; 		window-divider-last-pixel))
+;;   (face-spec-reset-face face)
+;;   (set-face-foreground face (face-attribute 'default :background)))
+;; (set-face-background 'fringe (face-attribute 'default :background))
 
 (add-hook 'org-mode-hook #'visual-line-mode)
 
@@ -87,13 +87,19 @@
  org-ellpisis "…")
 
 ;; Extra styling for code block
-(let ((med-red "#a60000")
-      (red-tint "#fbe9ef"))
+(let ((med-col "#a60000")
+      (re-tint "#fbe9ef"))
   (custom-set-faces
-   `(org-block-begin-line ((t :background ,red-tint :foreground ,med-red :extend t)))
-   `(org-block-end-line ((t :background ,red-tint :foreground ,med-red :extend t)))
-   `(org-modern-block-name ((t :background ,med-red :foreground "white" :weight bold)))
-   `(org-modern-block-keyword ((t :background ,red-tint :foreground ,med-red :weight bold)))))
+   `(org-block-begin-line ((t :background ,re-tint :foreground ,med-col :extend t)))
+   `(org-block-end-line ((t :background ,re-tint :foreground ,med-col :extend t)))
+   `(org-modern-block-name ((t :background ,med-col :foreground "white" :weight bold)))
+   `(org-modern-block-keyword ((t :background ,re-tint :foreground ,med-col :weight bold)))))
+
+(use-package treesit-auto
+  :ensure t
+  :custom (treesit-auto-install 'prompt)
+  :config (treesit-auto-add-to-auto-mode-alist)
+  (global-treesit-auto-mode))
 
 ;; Enabling rainbow-mode
 (use-package rainbow-mode

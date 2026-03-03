@@ -10,6 +10,7 @@
   - [[#frame-boarders-and-window-dividers][Frame boarders and Window dividers]]
   - [[#org][org]]
 - [[#packages][Packages]]
+  - [[#treesit-auto][treesit-auto]]
   - [[#built-in-packages][Built-in Packages]]
   - [[#org-packages][Org Packages]]
     - [[#org-roam][Org-Roam]]
@@ -32,27 +33,27 @@
 
 #+begin_src emacs-lisp
 
-  (defvar bootstrap-version)
-  (let ((bootstrap-file
-         (expand-file-name
-          "straight/repos/straight.el/bootstrap.el"
-          (or (bound-and-true-p straight-base-dir)
-              user-emacs-directory)))
-        (bootstrap-version 7))
-    (unless (file-exists-p bootstrap-file)
-      (with-current-buffer
-          (url-retrieve-synchronously
-           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-           'silent 'inhibit-cookies)
-        (goto-char (point-max))
-        (eval-print-last-sexp)))
-    (load bootstrap-file nil 'nomessage))
+  ;; (defvar bootstrap-version)
+  ;; (let ((bootstrap-file
+  ;;        (expand-file-name
+  ;;         "straight/repos/straight.el/bootstrap.el"
+  ;;         (or (bound-and-true-p straight-base-dir)
+  ;;             user-emacs-directory)))
+  ;;       (bootstrap-version 7))
+  ;;   (unless (file-exists-p bootstrap-file)
+  ;;     (with-current-buffer
+  ;;         (url-retrieve-synchronously
+  ;;          "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+  ;;          'silent 'inhibit-cookies)
+  ;;       (goto-char (point-max))
+  ;;       (eval-print-last-sexp)))
+  ;;   (load bootstrap-file nil 'nomessage))
 
-  (straight-use-package 'use-package)
-  (setq straight-use-package-by-default t)
+  ;; (straight-use-package 'use-package)
+  ;; (setq straight-use-package-by-default t)
 
-  ;; Official recommendation
-  (setq package-enable-at-startup nil)
+  ;; ;; Official recommendation
+  ;; (setq package-enable-at-startup nil)
 
 #+end_src
 
@@ -111,15 +112,15 @@
 Taken from org-modern GitHub repo: [[Ehttps://github.com/minad/org-modern?tab=readme-ov-file#configuration][Link]]
 #+begin_src emacs-lisp
 
-  (modify-all-frames-parameters
-   '((right-divider-width . 40)
-     (internal-border-width . 40)))
-  (dolist (face '(window-divider
-  		window-divider-first-pixel
-  		window-divider-last-pixel))
-    (face-spec-reset-face face)
-    (set-face-foreground face (face-attribute 'default :background)))
-  (set-face-background 'fringe (face-attribute 'default :background))
+  ;; (modify-all-frames-parameters
+  ;;  '((right-divider-width . 40)
+  ;;    (internal-border-width . 40)))
+  ;; (dolist (face '(window-divider
+  ;; 		window-divider-first-pixel
+  ;; 		window-divider-last-pixel))
+  ;;   (face-spec-reset-face face)
+  ;;   (set-face-foreground face (face-attribute 'default :background)))
+  ;; (set-face-background 'fringe (face-attribute 'default :background))
 
 #+end_src
 
@@ -158,6 +159,18 @@ Taken from org-modern GitHub repo: [[Ehttps://github.com/minad/org-modern?tab=re
 
 
 * Packages
+
+** treesit-auto
+
+#+begin_src emacs-lisp
+
+  (use-package treesit-auto
+    :ensure t
+    :custom (treesit-auto-install 'prompt)
+    :config (treesit-auto-add-to-auto-mode-alist 'all)
+    (global-treesit-auto-mode))
+
+#+end_src
 
 ** Built-in Packages
 

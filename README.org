@@ -1,6 +1,6 @@
 #+TITLE: Light-Emacs
 
-My personal configuration of GNU Emacs, which uses [[https://github.com/radian-software/straight.el][straight.el]] as the package manager, [[https://github.com/protesilaos/modus-themes][modus-operandi-tinted]] as the main theme, and [[https://github.com/minad/org-modern][org-modern]] styling.
+My personal literate configuration of GNU Emacs, with [[https://github.com/radian-software/straight.el][straight.el]] as the package manager, [[https://github.com/protesilaos/modus-themes][modus-operandi-tinted]] as the main theme, and [[https://github.com/minad/org-modern][org-modern]] styling.
 
 * Requirements
 
@@ -10,6 +10,7 @@ My personal configuration of GNU Emacs, which uses [[https://github.com/radian-s
 * Packages
 
 - [[https://github.com/magit/magit][Matgit]]
+- [[https://github.com/renzmann/treesit-auto][treesit-auto]]
 - Org Packages
   - [[https://github.com/org-roam/org-roam][org-roam]]
   - [[https://github.com/snosov1/toc-org][TOC-org]]

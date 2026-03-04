@@ -42,7 +42,7 @@
 (global-hl-line-mode 1)
 
 ;; Matching parentheses color
-(set-face-attribute 'show-paren-match nil :foreground "#02f543" :background "#02f543")
+;; (set-face-attribute 'show-paren-match nil :foreground "#02f543" :background "#02f543")
 
 ;; Line Spacing
 (setq-default line-spacing 0.12)
@@ -57,6 +57,7 @@
 
 (set-face-attribute 'default nil :family "Iosevka")
 (set-face-attribute 'fixed-pitch nil :family "Iosevka")
+;; (set-face-attribute 'variable-pitch nil :family "Libre Baskerville")
 (set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
 
 (set-fontset-font t 'telugu "NTR")
@@ -72,6 +73,8 @@
 ;; (set-face-background 'fringe (face-attribute 'default :background))
 
 (add-hook 'org-mode-hook #'visual-line-mode)
+
+;; (set-face-attribute 'org-link nil :underline nil)
 
 (setq
  ;; Settings
@@ -131,6 +134,17 @@
 (org-roam-setup))
 
 (setq org-return-follows-link t)
+
+(use-package org-roam-ui
+:straight
+  (:host github :repo "org-roam/org-roam-ui" :branch "main" :files ("*.el" "out"))
+  :after org-roam
+  :hook (after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
 
 (use-package toc-org
   :ensure t

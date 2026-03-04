@@ -15,6 +15,7 @@
   - [[#built-in-packages][Built-in Packages]]
   - [[#org-packages][Org Packages]]
     - [[#org-roam][Org-Roam]]
+    - [[#org-roam-ui][org-roam-ui]]
     - [[#toc-org][TOC-org]]
     - [[#org-modern][org-modern]]
     - [[#org-modern-indent][org-modern-indent]]
@@ -105,6 +106,7 @@
 
   (set-face-attribute 'default nil :family "Iosevka")
   (set-face-attribute 'fixed-pitch nil :family "Iosevka")
+  ;; (set-face-attribute 'variable-pitch nil :family "Libre Baskerville")
   (set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
 
   (set-fontset-font t 'telugu "NTR")
@@ -133,6 +135,8 @@ Taken from org-modern GitHub repo: [[Ehttps://github.com/minad/org-modern?tab=re
 #+begin_src emacs-lisp
 
   (add-hook 'org-mode-hook #'visual-line-mode)
+
+  ;; (set-face-attribute 'org-link nil :underline nil)
 
   (setq
    ;; Settings
@@ -221,6 +225,23 @@ Taken from org-modern GitHub repo: [[Ehttps://github.com/minad/org-modern?tab=re
   (org-roam-setup))
 
   (setq org-return-follows-link t)
+
+#+end_src
+
+*** org-roam-ui
+
+#+begin_src emacs-lisp
+
+  (use-package org-roam-ui
+  :straight
+    (:host github :repo "org-roam/org-roam-ui" :branch "main" :files ("*.el" "out"))
+    :after org-roam
+    :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
 
 #+end_src
 

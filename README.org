@@ -9,16 +9,17 @@ My personal literate configuration of GNU Emacs, with [[https://github.com/radia
 
 * Packages
 
-- [[https://github.com/magit/magit][Matgit]]
-- [[https://github.com/jrblevin/markdown-mode][Markdown-mode]]
-- [[https://github.com/renzmann/treesit-auto][treesit-auto]]
-- Org Packages
++ [[https://github.com/magit/magit][Matgit]]
++ [[https://github.com/jrblevin/markdown-mode][Markdown-mode]]
++ [[https://github.com/renzmann/treesit-auto][treesit-auto]]
++ Org Packages
   - [[https://github.com/org-roam/org-roam][org-roam]]
+  - [[https://github.com/org-roam/org-roam-ui][org-roam-ui]]
   - [[https://github.com/snosov1/toc-org][TOC-org]]
   - [[https://github.com/sabof/org-bullets][org-modern]]
   - [[https://github.com/jdtsmith/org-modern-indent][org-modern-indent]]
-- For minibuffer
++ For minibuffer
   - [[https://github.com/minad/vertico][Vertico]]
   - [[https://github.com/oantolin/orderless][orderless]]
   - [[https://github.com/minad/marginalia][Marginalia]]
-- [[https://github.com/emacsmirror/emmet-mode][emmet-mode]]
++ [[https://github.com/emacsmirror/emmet-mode][emmet-mode]]

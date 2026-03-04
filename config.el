@@ -85,6 +85,9 @@
  org-insert-heading-respect-content t
  org-startup-indented t
  org-startup-truncated nil
+ ;; Kanban workflow
+ org-todo-keywords '((sequence "IDEA" "RESEARCH" "TODO" "WORK-IN-PROGRESS" "|" "DONE" "DROPPED"))
+ 
  ;; Styling
  org-indent-indentation-per-level 2
  org-hide-emphasis-markers t

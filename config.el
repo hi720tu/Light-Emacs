@@ -41,6 +41,9 @@
 ;; Line highlight
 (global-hl-line-mode 1)
 
+;; Matching parentheses color
+(set-face-attribute 'show-paren-match nil :foreground "#02f543" :background "#02f543")
+
 ;; Line Spacing
 (setq-default line-spacing 0.12)
 
@@ -95,11 +98,18 @@
    `(org-modern-block-name ((t :background ,med-col :foreground "white" :weight bold)))
    `(org-modern-block-keyword ((t :background ,re-tint :foreground ,med-col :weight bold)))))
 
-(use-package treesit-auto
+;; (use-package treesit-auto
+;;   :ensure t
+;;   :custom (treesit-auto-install 'prompt)
+;;   :config (treesit-auto-add-to-auto-mode-alist 'all)
+;;   (global-treesit-auto-mode))
+
+(use-package markdown-mode
   :ensure t
-  :custom (treesit-auto-install 'prompt)
-  :config (treesit-auto-add-to-auto-mode-alist)
-  (global-treesit-auto-mode))
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown")
+  :bind (:map markdown-mode-map
+	      ("C-c C-e" . markdown-do)))
 
 ;; Enabling rainbow-mode
 (use-package rainbow-mode

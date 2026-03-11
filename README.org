@@ -23,3 +23,4 @@ My personal literate configuration of GNU Emacs, with [[https://github.com/radia
   - [[https://github.com/oantolin/orderless][orderless]]
   - [[https://github.com/minad/marginalia][Marginalia]]
 + [[https://github.com/emacsmirror/emmet-mode][emmet-mode]]
++ [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]]

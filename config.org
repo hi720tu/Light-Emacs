@@ -25,6 +25,7 @@
     - [[#orderless][Orderless]]
     - [[#marginalia][Marginalia]]
   - [[#emmet][Emmet]]
+  - [[#indentation-line][Indentation line]]
 - [[#improved-default-settings][Improved Default Settings]]
   - [[#auto-save--backup-files-management][Auto-save & Backup files management]]
   - [[#changing-default-encoding-to-utf-8][Changing default encoding to UTF-8]]
@@ -335,6 +336,19 @@ Taken from org-modern GitHub repo: [[Ehttps://github.com/minad/org-modern?tab=re
     :hook ((html-mode . emmet-mode)
   	 (css-mode . emmet-mode)
   	 (web-mode . emmet-mode)))
+
+#+end_src
+
+** Indentation line
+
+#+begin_src emacs-lisp
+
+  (use-package highlight-indent-guides
+    :straight t
+    :commands highlight-indent-guides-mode
+    :hook (prog-mode-hook . highlight-indent-guides-mode)
+    :config (setq highlight-indent-guides-method 'character
+  		highlight-indent-guides-responsive t))
 
 #+end_src
 

@@ -189,6 +189,13 @@
 	 (css-mode . emmet-mode)
 	 (web-mode . emmet-mode)))
 
+(use-package highlight-indent-guides
+  :straight t
+  :commands highlight-indent-guides-mode
+  :hook (prog-mode-hook . highlight-indent-guides-mode)
+  :config (setq highlight-indent-guides-method 'character
+		highlight-indent-guides-responsive t))
+
 (defvar my-backup-dir "~/.emacs.d/backups/")
 (defvar my-auto-save-dir "~/.emacs.d/auto-saves/")
 
